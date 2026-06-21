@@ -1,73 +1,228 @@
-# React + TypeScript + Vite
+# 🧠 Claro — AI Email Intelligence Platform
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+---
 
-Currently, two official plugins are available:
+<p align="center">
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+![React](https://img.shields.io/badge/Frontend-React-61DAFB?style=for-the-badge)
+![TypeScript](https://img.shields.io/badge/Language-TypeScript-3178C6?style=for-the-badge)
+![Vite](https://img.shields.io/badge/Build-Vite-646CFF?style=for-the-badge)
+![FastAPI](https://img.shields.io/badge/Backend-FastAPI-009688?style=for-the-badge)
+![AI](https://img.shields.io/badge/AI-Powered-success?style=for-the-badge)
 
-## React Compiler
+</p>
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## 🧠 What is Claro?
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+> ⚡ An AI-powered email intelligence platform that automatically classifies emails, prioritizes important messages, and generates intelligent replies.
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+💡 Built using modern AI workflows and Gmail integration.
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+📧 Designed for students, professionals, recruiters, and job seekers.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+---
+
+## 🎯 System Flow
+
+### 📥 Email Received
+⬇
+
+### 🧠 AI Classification Engine
+⬇
+
+### 📂 Category Detection
+⬇
+
+### 🎯 Priority Analysis
+⬇
+
+### 🤖 Smart Reply Generation
+⬇
+
+### 📊 Analytics Dashboard
+
+---
+
+## ✨ Key Features
+
+### 📬 Gmail Integration
+
+- Secure OAuth Authentication
+- Email Retrieval
+- Thread Management
+- Real-time Synchronization
+
+### 🧠 AI Email Classification
+
+Automatically categorizes emails into:
+
+- 💼 Recruiter Outreach
+- 🎓 Internship Opportunities
+- 📄 Job Applications
+- 🏫 Academic Notifications
+- 💳 Banking Alerts
+- 📰 Newsletters
+- 🛍 Promotions
+- 👤 Personal
+
+### 🎯 Priority Detection
+
+- High Priority Identification
+- Deadline Recognition
+- Important Sender Detection
+- Smart Email Ranking
+
+### 🤖 Smart Reply Generator
+
+Generate contextual responses instantly.
+
+- Professional Tone
+- Formal Replies
+- Quick Responses
+- Context Awareness
+
+### 📊 Dashboard Analytics
+
+Track:
+
+- Email Categories
+- Priority Distribution
+- Reply Statistics
+- Productivity Insights
+
+---
+
+## 🏗 Architecture
+
+```text
+┌─────────────────────┐
+│      Gmail API      │
+└──────────┬──────────┘
+           │
+           ▼
+┌─────────────────────┐
+│    Claro Backend    │
+│                     │
+│ Email Classifier    │
+│ Priority Detector   │
+│ Reply Generator     │
+└──────────┬──────────┘
+           │
+           ▼
+┌─────────────────────┐
+│   React Frontend    │
+│ Dashboard & UI      │
+└─────────────────────┘
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## 🛠 Tech Stack
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### Frontend
+
+- React
+- TypeScript
+- Vite
+- Tailwind CSS
+
+### Backend
+
+- FastAPI
+- Gmail API
+- OAuth 2.0
+
+### AI Layer
+
+- NLP Processing
+- Email Classification
+- Smart Reply Generation
+
+---
+
+## 📂 Project Structure
+
+```bash
+Claro/
+│
+├── src/
+│   ├── components/
+│   ├── pages/
+│   ├── services/
+│   ├── hooks/
+│   ├── utils/
+│   └── types/
+│
+├── public/
+├── package.json
+├── vite.config.ts
+└── README.md
 ```
+
+---
+
+## 🚀 Installation
+
+Clone the repository
+
+```bash
+git clone git@github.com:RiyaJain99/Claro.git
+```
+
+Move into project
+
+```bash
+cd Claro
+```
+
+Install dependencies
+
+```bash
+npm install
+```
+
+Run locally
+
+```bash
+npm run dev
+```
+
+Build production
+
+```bash
+npm run build
+```
+
+---
+
+## 📈 Future Scope
+
+- 📱 Mobile Application
+- 🧠 Email Summarization
+- 📅 Calendar Integration
+- 🎤 Voice-Based Replies
+- 👥 Team Collaboration
+
+---
+
+## 👩‍💻 Contributors
+
+- Riya Jain
+
+---
+
+## ⭐ Support
+
+If you found this project useful:
+
+⭐ Star the repository
+
+🍴 Fork the repository
+
+🚀 Contribute to the project
+
+---
+
+### Built with ❤️ using React, TypeScript, FastAPI and AI
