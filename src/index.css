@@ -1,0 +1,203 @@
+@import '@fontsource-variable/hanken-grotesk';
+@import '@fontsource-variable/geist';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body, #root { height: 100%; }
+
+body {
+	font-family: 'Hanken Grotesk Variable', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+/* ================= DARK THEME (glassmorphism) ================= */
+.dark {
+	color-scheme: dark;
+	--bg-1: #060810;
+	--bg-2: #0a0e1a;
+	--glow-blue: rgba(99, 102, 241, 0.12);
+	--glow-purple: rgba(139, 92, 246, 0.08);
+	--glass-bg: rgba(255, 255, 255, 0.035);
+	--glass-bg-hover: rgba(255, 255, 255, 0.06);
+	--glass-border: rgba(255, 255, 255, 0.08);
+	--glass-border-hover: rgba(255, 255, 255, 0.14);
+	--text-primary: rgba(255, 255, 255, 0.92);
+	--text-secondary: rgba(255, 255, 255, 0.55);
+	--text-tertiary: rgba(255, 255, 255, 0.32);
+	--accent: #6366f1;
+	--accent-light: #818cf8;
+}
+
+.dark body {
+	background:
+		radial-gradient(ellipse 800px 600px at 15% -10%, var(--glow-blue), transparent),
+		radial-gradient(ellipse 600px 500px at 90% 10%, var(--glow-purple), transparent),
+		linear-gradient(180deg, var(--bg-1) 0%, var(--bg-2) 100%);
+	background-attachment: fixed;
+	color: var(--text-primary);
+}
+
+/* Soft pulsing radial mesh used behind hero sections */
+.mesh-gradient {
+	position: fixed;
+	inset: 0;
+	pointer-events: none;
+	z-index: 0;
+	background: radial-gradient(circle at 50% 35%, rgba(99,102,241,0.07) 0%, transparent 60%);
+}
+
+/* Card-stack hover physics — used on the landing page envelope stack */
+.card-stack-item {
+	transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
+}
+.card-stack-item:hover {
+	transform: translateY(-10px) scale(1.03);
+	z-index: 50;
+	box-shadow: 0 20px 50px rgba(0,0,0,0.45);
+}
+.glow-primary {
+	box-shadow: 0 0 50px rgba(99,102,241,0.12);
+}
+
+/* ================= LIGHT THEME ================= */
+:root:not(.dark) {
+	color-scheme: light;
+	--bg-1: #f7f8fb;
+	--bg-2: #ffffff;
+	--glass-bg: #ffffff;
+	--glass-bg-hover: #fbfbfe;
+	--glass-border: rgba(15, 23, 42, 0.08);
+	--glass-border-hover: rgba(15, 23, 42, 0.14);
+	--text-primary: #0b1220;
+	--text-secondary: #475569;
+	--text-tertiary: #94a3b8;
+	--accent: #4f46e5;
+	--accent-light: #6366f1;
+}
+
+:root:not(.dark) body {
+	background: linear-gradient(180deg, var(--bg-1) 0%, var(--bg-2) 100%);
+	color: var(--text-primary);
+}
+
+/* ================= GLASS COMPONENTS ================= */
+
+.glass-panel {
+	background: var(--glass-bg);
+	border: 1px solid var(--glass-border);
+	backdrop-filter: blur(20px);
+	-webkit-backdrop-filter: blur(20px);
+}
+
+.glass-card {
+	background: var(--glass-bg);
+	border: 1px solid var(--glass-border);
+	backdrop-filter: blur(16px);
+	-webkit-backdrop-filter: blur(16px);
+	border-radius: 14px;
+	transition: border-color 0.2s ease, background 0.2s ease, transform 0.2s ease;
+}
+
+.glass-card:hover {
+	background: var(--glass-bg-hover);
+	border-color: var(--glass-border-hover);
+}
+
+.glass-card-flat {
+	background: var(--glass-bg);
+	border: 1px solid var(--glass-border);
+	border-radius: 12px;
+}
+
+.nav-active {
+	background: linear-gradient(135deg, rgba(99,102,241,0.18), rgba(139,92,246,0.10));
+	border: 1px solid rgba(99,102,241,0.25);
+	color: var(--accent-light);
+}
+
+.logo-glow {
+	background: linear-gradient(135deg, #4f46e5, #7c3aed);
+	box-shadow: 0 0 24px rgba(99,102,241,0.45);
+}
+
+.email-row {
+	border-bottom: 1px solid var(--glass-border);
+	transition: background 0.15s ease;
+	cursor: pointer;
+}
+.email-row:hover {
+	background: var(--glass-bg-hover);
+}
+.email-row.selected {
+	background: linear-gradient(90deg, rgba(99,102,241,0.10), transparent);
+	border-left: 2px solid var(--accent);
+}
+
+.confidence-fill {
+	background: linear-gradient(90deg, var(--accent), var(--accent-light));
+	box-shadow: 0 0 8px rgba(99,102,241,0.5);
+}
+
+.badge-soft {
+	border-radius: 999px;
+	font-weight: 600;
+	font-size: 10px;
+	padding: 3px 9px;
+	letter-spacing: 0.01em;
+}
+
+.btn-gradient {
+	background: linear-gradient(135deg, #4f46e5, #6366f1);
+	box-shadow: 0 4px 14px rgba(99,102,241,0.35);
+	transition: filter 0.15s ease, transform 0.1s ease;
+}
+.btn-gradient:hover { filter: brightness(1.08); }
+.btn-gradient:active { transform: scale(0.98); }
+
+.email-body { background: transparent; }
+.email-body .email-content > * {
+	max-width: 900px !important;
+	margin: 0 auto !important;
+	background: transparent !important;
+}
+.email-body img, .email-body table, .email-body td, .email-body th {
+	max-width: 100% !important;
+	height: auto !important;
+}
+.email-body iframe { width: 100% !important; }
+
+.modal-backdrop {
+	background: rgba(0,0,0,0.55);
+	backdrop-filter: blur(4px);
+}
+
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-thumb {
+	background: rgba(255,255,255,0.08);
+	border-radius: 9999px;
+	border: 2px solid transparent;
+	background-clip: content-box;
+}
+:root:not(.dark) ::-webkit-scrollbar-thumb {
+	background: rgba(15,23,42,0.12);
+}
+
+.muted { color: var(--text-secondary); }
+
+.app-container {
+	max-width: 1200px;
+	margin: 0 auto;
+}
+
+@keyframes shimmer {
+	0% { background-position: -200% 0; }
+	100% { background-position: 200% 0; }
+}
+.skeleton-shimmer {
+	background: linear-gradient(90deg, var(--glass-bg) 25%, var(--glass-bg-hover) 50%, var(--glass-bg) 75%);
+	background-size: 200% 100%;
+	animation: shimmer 1.6s ease-in-out infinite;
+}
