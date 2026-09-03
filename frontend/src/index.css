@@ -1,0 +1,115 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+ * Material-3 color tokens as CSS variables (R G B triples, consumed via
+ * rgb(var(--c-x) / <alpha-value>) in tailwind.config.js). Centralizing them
+ * here means every component's bg-surface/text-on-surface/etc. utility
+ * automatically follows the .dark class - no per-component dark: variants
+ * needed. Dark values reuse M3's own "fixed"/"container" role tokens
+ * (e.g. primary-fixed-dim as the dark-mode primary) for sensible contrast.
+ */
+:root {
+	--c-primary: 4 37 190;
+	--c-on-primary: 255 255 255;
+	--c-primary-container: 46 68 212;
+	--c-on-primary-container: 196 201 255;
+	--c-secondary: 80 95 118;
+	--c-secondary-container: 208 225 251;
+	--c-on-secondary-container: 84 100 122;
+	--c-tertiary: 60 64 66;
+	--c-tertiary-container: 84 87 89;
+	--c-on-tertiary-container: 202 205 207;
+	--c-error: 186 26 26;
+	--c-error-container: 255 218 214;
+	--c-on-error-container: 147 0 10;
+	--c-background: 250 248 255;
+	--c-on-background: 19 27 46;
+	--c-surface: 250 248 255;
+	--c-surface-bright: 250 248 255;
+	--c-on-surface: 19 27 46;
+	--c-on-surface-variant: 68 70 85;
+	--c-surface-container-lowest: 255 255 255;
+	--c-surface-container-low: 242 243 255;
+	--c-surface-container: 234 237 255;
+	--c-surface-container-high: 226 231 255;
+	--c-surface-container-highest: 218 226 253;
+	--c-outline: 117 118 134;
+	--c-outline-variant: 197 197 215;
+}
+
+.dark {
+	--c-primary: 188 195 255;
+	--c-on-primary: 10 17 64;
+	--c-primary-container: 22 48 196;
+	--c-on-primary-container: 223 224 255;
+	--c-secondary: 183 200 225;
+	--c-secondary-container: 56 72 93;
+	--c-on-secondary-container: 211 228 254;
+	--c-tertiary: 196 199 201;
+	--c-tertiary-container: 68 71 73;
+	--c-on-tertiary-container: 224 227 229;
+	--c-error: 255 180 171;
+	--c-error-container: 147 0 10;
+	--c-on-error-container: 255 218 214;
+	--c-background: 15 20 36;
+	--c-on-background: 238 240 255;
+	--c-surface: 15 20 36;
+	--c-surface-bright: 26 32 54;
+	--c-on-surface: 238 240 255;
+	--c-on-surface-variant: 199 201 219;
+	--c-surface-container-lowest: 26 32 54;
+	--c-surface-container-low: 31 39 64;
+	--c-surface-container: 36 44 74;
+	--c-surface-container-high: 43 52 84;
+	--c-surface-container-highest: 50 60 96;
+	--c-outline: 139 141 163;
+	--c-outline-variant: 67 70 92;
+}
+
+html, body, #root { height: 100%; }
+
+body {
+	font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	background-color: rgb(var(--c-background));
+	color: rgb(var(--c-on-background));
+}
+
+@keyframes shimmer {
+	0% { background-position: -200% 0; }
+	100% { background-position: 200% 0; }
+}
+.skeleton-shimmer {
+	background: linear-gradient(90deg, #eaedff 25%, #dae2fd 50%, #eaedff 75%);
+	background-size: 200% 100%;
+	animation: shimmer 1.6s ease-in-out infinite;
+}
+.dark .skeleton-shimmer {
+	background: linear-gradient(90deg, #283044 25%, #38485d 50%, #283044 75%);
+	background-size: 200% 100%;
+}
+
+.email-body .email-content > * {
+	max-width: 900px !important;
+	margin: 0 auto !important;
+	background: transparent !important;
+}
+.email-body img, .email-body table, .email-body td, .email-body th {
+	max-width: 100% !important;
+	height: auto !important;
+}
+.email-body iframe { width: 100% !important; }
+
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-thumb {
+	background: rgba(15,23,42,0.14);
+	border-radius: 9999px;
+	border: 2px solid transparent;
+	background-clip: content-box;
+}
+.dark ::-webkit-scrollbar-thumb {
+	background: rgba(255,255,255,0.14);
+}
